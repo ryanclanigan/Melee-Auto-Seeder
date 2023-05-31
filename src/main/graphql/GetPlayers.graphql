@@ -1,0 +1,23 @@
+query PlayersQuery($slug: String!, $entrantsQuery: EventEntrantPageQuery!) {
+    tournament(slug: $slug){
+        events {
+            name
+            phases {
+                id
+            }
+            entrants(query: $entrantsQuery) {
+                nodes {
+                    name
+                    id
+                    seeds {
+                        id
+                        seedNum
+                        phase {
+                            id
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
